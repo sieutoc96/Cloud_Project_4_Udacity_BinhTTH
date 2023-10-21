@@ -2,7 +2,7 @@
 org: binhtth
 app: serverless-todo-app-binhthh-1
 service: serverless-todo-app-binhthh-1
-frameworkVersion: '3.34.0'
+frameworkVersion: '3.35.2'
 
 plugins:
   - serverless-webpack
@@ -87,7 +87,6 @@ functions:
         Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.TODOS_TABLE}/index/${self:provider.environment.INDEX_NAME}
       - Effect: "Allow"
         Action:
-          - xray:PutTelemetryRecords
           - xray:PutTraceSegments
         Resource: "*"
 
@@ -121,7 +120,6 @@ functions:
         Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.TODOS_TABLE}/index/${self:provider.environment.TODOS_CREATED_AT_INDEX}
       - Effect: "Allow"
         Action:
-          - xray:PutTelemetryRecords
           - xray:PutTraceSegments
         Resource: "*"
 
@@ -150,7 +148,6 @@ functions:
       - Effect: Allow
         Action:
           - xray:PutTraceSegments
-          - xray:PutTelemetryRecords
         Resource: 
           - '*'
   # TODO: Configure this function
@@ -172,7 +169,6 @@ functions:
       - Effect: Allow
         Action:
           - xray:PutTraceSegments
-          - xray:PutTelemetryRecords
         Resource: 
           - '*'
 
@@ -199,7 +195,6 @@ functions:
       - Effect: Allow
         Action:
           - xray:PutTraceSegments
-          - xray:PutTelemetryRecords
         Resource: 
           - '*'
 

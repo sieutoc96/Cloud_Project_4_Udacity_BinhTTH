@@ -13,7 +13,6 @@ export const handler = middy(
     // TODO: Remove a TODO item by id
     
     const userId = getUserId(event);
-    console.log('userId: ', userId)
     await deleteTodo(
       todoId,
       userId
